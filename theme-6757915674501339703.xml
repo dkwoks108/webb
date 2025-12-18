@@ -5453,7 +5453,7 @@
             <div class='hero-subtitle'>Understand tomorrow’s technology — today.</div>
             <div class='hero-keywords'><span id='kw'>AI Tools</span></div>
             <div class='hero-cta'>
-              <a class='btn btn-primary' href='/search/label/AI%20Tools'>Explore AI Tools</a>
+              <a class='btn btn-primary' href='/search/label/AI%20Tools%20%26%20Reviews'>Explore AI Tools</a>
               <a class='btn' href='/search/label/Trends'>Latest AI Trends</a>
             </div>
           </div>
@@ -5474,12 +5474,12 @@
       <h2 class='section-title'>Category Hub</h2>
       <section class='container'>
         <div class='category-grid'>
-          <div class='category-card'><div class='name'>Artificial Intelligence</div><div class='meta'>Core concepts and breakthroughs</div></div>
-          <div class='category-card'><div class='name'>Generative AI</div><div class='meta'>Models, prompts, and safety</div></div>
-          <div class='category-card'><div class='name'>AI Tools &amp; Reviews</div><div class='meta'>Hands-on evaluations</div></div>
-          <div class='category-card'><div class='name'>Future Technology</div><div class='meta'>Next-wave platforms</div></div>
-          <div class='category-card'><div class='name'>Robotics &amp; Automation</div><div class='meta'>Hardware meets intelligence</div></div>
-          <div class='category-card'><div class='name'>AI &amp; Jobs</div><div class='meta'>Skills and career paths</div></div>
+          <a class='category-card' href='/search/label/Artificial%20Intelligence'><div class='name'>Artificial Intelligence</div><div class='meta'>Core concepts and breakthroughs</div></a>
+          <a class='category-card' href='/search/label/Generative%20AI'><div class='name'>Generative AI</div><div class='meta'>Models, prompts, and safety</div></a>
+          <a class='category-card' href='/search/label/AI%20Tools%20%26%20Reviews'><div class='name'>AI Tools &amp; Reviews</div><div class='meta'>Hands-on evaluations</div></a>
+          <a class='category-card' href='/search/label/Future%20Technology'><div class='name'>Future Technology</div><div class='meta'>Next-wave platforms</div></a>
+          <a class='category-card' href='/search/label/Robotics%20%26%20Automation'><div class='name'>Robotics &amp; Automation</div><div class='meta'>Hardware meets intelligence</div></a>
+          <a class='category-card' href='/search/label/AI%20%26%20Jobs'><div class='name'>AI &amp; Jobs</div><div class='meta'>Skills and career paths</div></a>
         </div>
       </section>
 
