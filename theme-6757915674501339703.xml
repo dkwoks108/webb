@@ -130,9 +130,12 @@
   --footer-hover:$(footer.hover);
   --neon-blue:#4DA3FF;
   --neon-cyan:#06D6FF;
-  --neon-purple:#E11D7D;
-  --glass-bg:rgba(20,30,50,0.4);
-  --glow-color:rgba(77,163,255,0.3);
+  --neon-purple:#7C5CFF;
+   --glass-bg:rgba(255,255,255,0.06);
+   --glow-color:rgba(77,163,255,0.45);
+   --card-surface:rgba(255,255,255,0.06);
+   --muted:#B8C1EC;
+   --bg-deep:#0B0F1A;
   --posts-background-color:$(posts.background.color);
   }
   html.is-light{
@@ -296,9 +299,9 @@
   /* Hero Section */
   .hero-section {
       position: relative;
-      padding: 80px 40px;
+    padding: 80px 40px;
       margin-bottom: 60px;
-      background: linear-gradient(135deg, #0A0E27 0%, #1a1f3a 100%);
+    background: linear-gradient(135deg, #0B0F1A 0%, #0f1526 50%, #12172a 100%);
       border-radius: 16px;
       overflow: hidden;
       min-height: 500px;
@@ -366,6 +369,14 @@
       flex-wrap: wrap;
   }
 
+  .hero-trust {
+      margin-top: 24px;
+      font-size: 14px;
+      color: var(--muted);
+      opacity: 0.8;
+      font-style: italic;
+  }
+
   .btn-primary, .btn-secondary {
       padding: 14px 32px;
       border-radius: 8px;
@@ -380,24 +391,26 @@
   }
 
   .btn-primary {
-      background: linear-gradient(135deg, #4DA3FF 0%, #06D6FF 100%);
-      color: #0A0E27;
+      background: linear-gradient(135deg, #4DA3FF 0%, #7C5CFF 100%);
+      color: #FFFFFF;
       box-shadow: 0 8px 24px rgba(77,163,255,0.3);
   }
 
   .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(77,163,255,0.5);
+      box-shadow: 0 12px 32px rgba(124,92,255,0.5), 0 0 40px rgba(77,163,255,0.3);
   }
 
-  .btn-secondary {
+  .btn-secondary, .btn-ghost {
       background: transparent;
       color: #4DA3FF;
-      border: 2px solid #4DA3FF;
+      border: 2px solid rgba(77,163,255,0.4);
   }
 
-  .btn-secondary:hover {
-      background: rgba(77,163,255,0.1);
+  .btn-secondary:hover, .btn-ghost:hover {
+      background: rgba(77,163,255,0.08);
+      border-color: #4DA3FF;
+      box-shadow: 0 0 20px rgba(77,163,255,0.25);
       transform: translateY(-2px);
   }
 
@@ -452,17 +465,56 @@
       width: 280px;
       scroll-snap-align: start;
       padding: 20px;
-      background: linear-gradient(135deg, #1a1f3a 0%, #142238 100%);
+      background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.03) 100%);
       border: 1px solid rgba(77,163,255,0.2);
       border-radius: 12px;
       transition: all 0.3s ease;
       cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
   }
 
   .trending-card:hover {
       transform: translateY(-8px);
-      border-color: #4DA3FF;
-      box-shadow: 0 20px 40px rgba(77,163,255,0.2);
+      border-color: #7C5CFF;
+      box-shadow: 0 20px 40px rgba(124,92,255,0.2);
+  }
+
+  .trending-card .card-cta {
+      margin-top: auto;
+      padding-top: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #4DA3FF;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.3s ease;
+  }
+
+  .trending-card:hover .card-cta {
+      color: #7C5CFF;
+      gap: 10px;
+  }
+
+  .trending-card .card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 17px;
+      color: #FFFFFF;
+      margin: 8px 0 0 0;
+      line-height: 1.4;
+      flex-grow: 1;
+  }
+
+  .trend-tag {
+      display: inline-block;
+      font-size: 12px;
+      color: #4DA3FF;
+      background: rgba(77,163,255,0.1);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-weight: 600;
   }
 
   .trending-card-label {
@@ -550,6 +602,85 @@
       line-height: 1.6;
   }
 
+  /* Section Title */
+  .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin: 50px 0 30px;
+      text-align: center;
+  }
+
+  /* Category Grid */
+  .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+  }
+
+  /* Tools Grid */
+  .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+  }
+
+  /* Timeline / Prediction Cards */
+  .timeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+  }
+
+  .prediction-card {
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(77,163,255,0.2);
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+  }
+
+  .prediction-card:hover {
+      transform: translateY(-6px);
+      border-color: #7C5CFF;
+      box-shadow: 0 16px 32px rgba(124,92,255,0.2);
+  }
+
+  .prediction-card .post-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+  }
+
+  .prediction-card .post-summary {
+      font-size: 14px;
+      color: #CBD5E1;
+      line-height: 1.6;
+      flex-grow: 1;
+  }
+
+  .prediction-card .card-cta {
+      margin-top: 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #4DA3FF;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.3s ease;
+  }
+
+  .prediction-card:hover .card-cta {
+      color: #7C5CFF;
+      gap: 10px;
+  }
+
   /* Blog Post Enhancements */
   .post-tldr {
       background: var(--glass-bg);
@@ -623,22 +754,89 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: linear-gradient(135deg, #4DA3FF 0%, #06D6FF 100%);
-      padding: 20px;
-      border-radius: 12px;
-      color: #0A0E27;
-      font-weight: 600;
-      font-size: 14px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 100%);
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      padding: 24px;
+      border-radius: 16px;
+      border: 1px solid rgba(77,163,255,0.2);
       z-index: 999;
-      max-width: 300px;
-      box-shadow: 0 20px 40px rgba(77,163,255,0.3);
+      max-width: 320px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
       cursor: pointer;
       transition: all 0.3s ease;
   }
 
   .newsletter-sticky:hover {
       transform: translateY(-4px);
-      box-shadow: 0 24px 48px rgba(77,163,255,0.4);
+      border-color: #7C5CFF;
+      box-shadow: 0 24px 48px rgba(124,92,255,0.3);
+  }
+
+  .newsletter-headline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+  }
+
+  .newsletter-subtext {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 16px;
+  }
+
+  .newsletter-trust {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--muted);
+      opacity: 0.7;
+      text-align: center;
+  }
+
+  .news-row {
+      display: flex;
+      gap: 8px;
+  }
+
+  .news-input {
+      flex: 1;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(77,163,255,0.3);
+      background: rgba(255,255,255,0.05);
+      color: #FFFFFF;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s ease;
+  }
+
+  .news-input:focus {
+      border-color: #4DA3FF;
+  }
+
+  .news-input::placeholder {
+      color: var(--muted);
+      opacity: 0.6;
+  }
+
+  .news-btn {
+      padding: 12px 20px;
+      border-radius: 8px;
+      border: none;
+      background: linear-gradient(135deg, #4DA3FF 0%, #7C5CFF 100%);
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+  }
+
+  .news-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(124,92,255,0.4);
   }
 
   /* Mobile Bottom Navigation */
@@ -5454,8 +5652,9 @@
             <div class='hero-keywords'><span id='kw'>AI Tools</span></div>
             <div class='hero-cta'>
               <a class='btn btn-primary' href='/search/label/AI%20Tools%20%26%20Reviews'>Explore AI Tools</a>
-              <a class='btn' href='/search/label/Trends'>Latest AI Trends</a>
+              <a class='btn btn-ghost' href='/search/label/Future%20Technology'>Latest AI Trends</a>
             </div>
+            <div class='hero-trust'>Trusted by AI learners, founders &amp; developers</div>
           </div>
           <div class='hero-visual'></div>
         </div>
@@ -5464,10 +5663,10 @@
       <h2 class='section-title'>Trending Now</h2>
       <section class='trending-container container'>
         <div class='trending-scroll'>
-          <article class='trending-card'><div class='trend-tag'>AI Tools</div><div>Best AI image upscalers in 2026</div></article>
-          <article class='trending-card'><div class='trend-tag'>Trends</div><div>Edge AI chips shift to consumer</div></article>
-          <article class='trending-card'><div class='trend-tag'>Future Tech</div><div>Ambient AGI assistants everywhere</div></article>
-          <article class='trending-card'><div class='trend-tag'>Careers</div><div>Top AI roles hiring now</div></article>
+          <a class='trending-card' href='/search/label/AI%20Tools%20%26%20Reviews'><div class='trend-tag'>AI Tools</div><div class='card-title'>Best AI image upscalers in 2026</div><span class='card-cta'>Read Insight →</span></a>
+          <a class='trending-card' href='/search/label/Artificial%20Intelligence'><div class='trend-tag'>Trends</div><div class='card-title'>Edge AI chips shift to consumer</div><span class='card-cta'>Read Insight →</span></a>
+          <a class='trending-card' href='/search/label/Future%20Technology'><div class='trend-tag'>Future Tech</div><div class='card-title'>Ambient AGI assistants everywhere</div><span class='card-cta'>Read Insight →</span></a>
+          <a class='trending-card' href='/search/label/AI%20%26%20Jobs'><div class='trend-tag'>Careers</div><div class='card-title'>Top AI roles hiring now</div><span class='card-cta'>Read Insight →</span></a>
         </div>
       </section>
 
@@ -5495,15 +5694,17 @@
       <h2 class='section-title'>Future Predictions</h2>
       <section class='container'>
         <div class='timeline'>
-          <div class='prediction-card'><div class='post-title'>AI in 2026</div><div class='post-summary'>Agent ecosystems dominate workflows.</div></div>
-          <div class='prediction-card'><div class='post-title'>Jobs &amp; automation</div><div class='post-summary'>AI augments every role, shifts seniority paths.</div></div>
-          <div class='prediction-card'><div class='post-title'>Breakthroughs</div><div class='post-summary'>Few-shot robotics with adaptive policies.</div></div>
+          <a class='prediction-card' href='/search/label/Artificial%20Intelligence'><div class='post-title'>AI in 2026</div><div class='post-summary'>Agent ecosystems dominate workflows.</div><span class='card-cta'>See Forecast →</span></a>
+          <a class='prediction-card' href='/search/label/AI%20%26%20Jobs'><div class='post-title'>Jobs &amp; automation</div><div class='post-summary'>AI augments every role, shifts seniority paths.</div><span class='card-cta'>See Forecast →</span></a>
+          <a class='prediction-card' href='/search/label/Future%20Technology'><div class='post-title'>Breakthroughs</div><div class='post-summary'>Few-shot robotics with adaptive policies.</div><span class='card-cta'>See Forecast →</span></a>
         </div>
       </section>
 
       <section class='newsletter-sticky container'>
-        <div class='post-title'>Weekly AI breakthroughs. No noise.</div>
-        <div class='news-row'><input class='news-input' type='email' placeholder='Your email'/><button class='news-btn'>Subscribe</button></div>
+        <div class='newsletter-headline'>Stay Ahead of the AI Curve</div>
+        <div class='newsletter-subtext'>Weekly insights. Zero spam.</div>
+        <div class='news-row'><input class='news-input' type='email' placeholder='Your email'/><button class='news-btn'>Join AI Insiders</button></div>
+        <div class='newsletter-trust'>Unsubscribe anytime</div>
       </section>
       <div id='main-feat-wrapper'>
         <b:section id='featured-section' maxwidgets='1' name='Featured Posts' showaddelement='yes'>
